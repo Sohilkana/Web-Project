@@ -1,0 +1,159 @@
+<?php
+include('connection.php');
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Store</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="popup1.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .outer_div {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 700px;
+            background-color:lightblue;
+        }
+
+        .inner_left {
+            width: 50%;
+        }
+
+        .inner_right {
+            margin-top: 200px;
+            width: 50%;
+            font-size: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <img class="left_logo" src="img2.png">
+                <li class="home"><a href="#">Home</a></li>
+                <li><a href="#">Perfumes</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <a class="lf" href="SignUp.php">Signup
+    </a><br><br>
+    <a class="lf" href="LogIn.php">Login
+    </a>
+    <div class="img_logo"><img src="logo2.png" class="perfume3" alt="perfume1">
+        <h1>AIN1 PERFUME STORE</h1>
+    </div>
+    <div class="outer_div">
+        <div class="inner_left">
+            <img class="imgs" style="width: 450px;padding-top:150px;
+            height: 450px;padding-left:100px;filter: drop-shadow(black 3px 3px 10px);" src="img2.png" alt="">
+        </div>
+        <div class="inner_right">
+            <p>
+                <label>Make your Presence felt </label><br>
+                    <label style="color:#FF5F00;filter: drop-shadow(gray 3px 3px 10px);font-family:Verdana, Geneva, Tahoma, sans-serif;font-size:35px;">with </label><br>
+                <label>Our Range of Perfumes</label>
+            </p>
+        </div>
+    </div>
+
+    <main class="main_container">
+        <section class="products">
+            <div class="product">
+                <img src="black.jpg" alt="Perfume 1">
+                <h2>Black</h2>
+                <p>THE MAN COMPANY Black perfume Eau de Toilette - 50 ml (For Men) </p>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                <p><i class="fa-solid fa-indian-rupee-sign"> 363
+                </i></p>
+                <br><button class="ADD"><i class="fa-solid fa-plus"></i> ADD TO CART</button>
+                <a href="LogIn.php"><button><i class="fa-solid fa-cart-shopping"></i> BUY NOW</button></a>
+            </div>
+            <div class="product">
+                <img src="fogg.jpg" alt="Perfume 2">
+                <h2>Fogg</h2>
+                <p>FOGG Scent Oud Extreme Eau de Parfum - 100 ml (For Men)</p>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                <p><i class="fa-solid fa-indian-rupee-sign"> 299
+                </i></p>
+                <button class="ADD"><i class="fa-solid fa-plus"></i> ADD TO CART</button>
+                <a href="LogIn.php"><button><i class="fa-solid fa-cart-shopping"></i> BUY NOW</button></a>
+            </div>
+            <div class="product">
+                <img src="titan.jpg" width="50%" height="50%" alt="Perfume 1">
+                <h2>Titan</h2>
+                <p>SKINN by TITAN verge Eau de Parfum - 50 ml (For Men)</p>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                <p><i class="fa-solid fa-indian-rupee-sign"> 1,610
+                </i></p>
+                <button class="ADD"><i class="fa-solid fa-plus"></i> ADD TO CART</button>
+                <a href="LogIn.php"><button><i class="fa-solid fa-cart-shopping"></i> BUY NOW</button></a>
+            </div>
+            <div class="product">
+                <img src="berdoo.jpg" width="35%" height="35%" alt="Perfume 2">
+                <h2>Berdo</h2>
+                <p>BEARDO Godfather Perfume, | Premium, Strong & Long Lasting Fragrance Eau de Parfum - 50 ml  (For Men)</p>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                <p><i class="fa-solid fa-indian-rupee-sign"> 247
+                </i></p>
+                <button class="ADD"><i class="fa-solid fa-plus"></i> ADD TO CART</button>
+                <a href="LogIn.php"><button><i class="fa-solid fa-cart-shopping"></i> BUY NOW</button></a>
+            </div>
+            <div class="product">
+                <img src="wild.jpg" width="42%" height="35%" alt="Perfume 2">
+                <h2>wild Stone</h2>
+                <p>Wild Stone Edge Eau de Parfum - 30 ml (For Men)</p>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                <p><i class="fa-solid fa-indian-rupee-sign"> 221
+                </i></p>
+                <button class="ADD"><i class="fa-solid fa-plus"></i> ADD TO CART</button>
+                <a href="LogIn.php"><button><i class="fa-solid fa-cart-shopping"></i> BUY NOW</button></a>
+            </div>
+            <div class="product">
+                <img src="Roadstar.jpg" width="42%" height="35%" alt="Perfume 2">
+                <h2>Rodstar</h2>
+                <p>Wild Stone Edge Eau de Parfum - 30 ml (For Men)</p>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                <p><i class="fa-solid fa-indian-rupee-sign"> 221
+                </i></p>
+                <button class="ADD"><i class="fa-solid fa-plus"></i> ADD TO CART</button>
+                <a href="LogIn.php"><button><i class="fa-solid fa-cart-shopping"></i> BUY NOW</button></a>
+            </div>
+            <div class="product">
+                <img src="park avenue.jpg" width="30%" height="30%" alt="Perfume 2">
+                <h2>Park Avenue</h2>
+                <p>Wild Stone Edge Eau de Parfum - 30 ml (For Men)</p>
+                <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                <p><i class="fa-solid fa-indian-rupee-sign"> 221
+                </i></p>
+                <button class="ADD"><i class="fa-solid fa-plus"></i> ADD TO CART</button>
+                <a href="LogIn.php"><button><i class="fa-solid fa-cart-shopping"></i> BUY NOW</button></a>
+            </div>
+            <!-- Add more product divs here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Perfume Store</p>
+        <p>Create By Sohil Kana and Sohel Susadiya</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
