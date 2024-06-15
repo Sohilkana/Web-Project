@@ -11,8 +11,7 @@ include('connection.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfume Store</title>
-    <link rel="stylesheet" href="styles2.css">
-    <link rel="stylesheet" href="popup1.html">
+    <!-- <link rel="stylesheet" href="popup1.html"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -36,6 +35,141 @@ include('connection.php');
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             padding-left: 10%;
         }
+
+
+
+        /* page styling 2 */
+        /* styles.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    margin-bottom: 68px;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background-color: #f2f2f2;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding:0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 2%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    justify-content: space-around;
+}
+
+main {
+    padding: 20px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    flex: 1 1 300px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddddddf5;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    background-color: #fb641b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1f38c4;
+}
+
+.lf {
+    /* margin-left: 800px; */
+    /* margin-top: 20px; */
+    /* margin-left: 90%; */
+    text-decoration: none;
+}
+.ADD{
+    background-color: #ff9f00;
+}
+.perfume3 {
+    border-radius: 50%;
+    width: 170px;
+    height: auto;
+}
+
+.img_logo {
+    align-items: center;
+    text-align: center;
+}
+
+.left_logo {
+    background-size: cover;
+    height: 200px;
+    width: auto;
+    filter: drop-shadow(10px 5px 12px gray);
+    position: fixed;
+    top: 1px;
+    left: 10px;
+    height: 50px;
+    
+}
+
+.main_container {
+    overflow: hidden;
+}
+
+footer {
+    align-items: center;
+    text-align: center;
+    background: #3b3535;
+    color: white;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+}
+/* .home{ */
+    /* padding-left: 35px; */
+/* } */
     </style>
 </head>
 
