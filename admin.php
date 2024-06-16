@@ -80,7 +80,7 @@ include('ownerconn.php')
     </div>
     <div id="rightDiv">
       <div id="buttonContainer">
-        <button id="button1">
+        <button id="button1" onclick="open_add_page()">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
             class="bi bi-clipboard-plus" viewBox="0 0 16 16">
             <path fill-rule="evenodd"
@@ -130,6 +130,11 @@ include('ownerconn.php')
 
     // Initial paragraph update
     updateParagraph();
+  </script>
+  <script>
+    function open_add_page(){
+      window.open('insert.php');
+    }
   </script>
 </body>
 

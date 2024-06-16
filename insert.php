@@ -1,9 +1,12 @@
+<?php
+include('ownerconn.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Form</title>
+    <title>Perfume Input Data </title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <style>
@@ -22,7 +25,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 500px;
 }
 
 form {
@@ -32,7 +35,7 @@ form {
 
 h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: brown;
     text-align: center;
 }
 
@@ -51,6 +54,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    height: 25px;
 }
 
 button {
@@ -66,106 +70,93 @@ button {
 button:hover {
     background-color: #218838;
 }
-
+#error {
+        background-color: rgb(180, 116, 116, 0.330);
+        color: rgb(190, 37, 39, 0.800);
+        border-radius: 5px;
+        margin-top: 5px;
+        text-align: center;
+    }
+    #successfully {
+        background-color: #dff0d8;
+        color: #3c763d;
+        border-radius: 5px;
+        margin-top: 5px;
+        text-align: center;
+    }
+    .redio{
+        height: 50px;
+    }
 </style>
 <body>
     <div class="form-container">
         <form action="#" method="post" enctype="multipart/form-data">
-            <h2>Perfume input data</h2>    
+            <div id="error"></div>
+            <div id="successfully"></div>
+            <h2>Perfume Input Data</h2>    
             <label for="product-image">Perfume Image</label>
-            <input type="file" id="product-image" name="product-image" accept="image/*">
+            <input type="file" id="product-image" name="image" accept="image/*">
             
             <label for="product-name">Perfume Name</label>
-            <input type="text" id="product-name" name="product-name">
+            <input type="text" id="product-name" name="pname">
             
-            <label for="product-price">Perfume Price</label>
-            <input type="number" id="product-price" name="product-price" step="0.01">
+            <label for="product-price" style=color:green>Perfume Price</label>
+            <input type="number" id="product-price" name="price" step="0.01">
             
-            <label for="product-ml">(ml)</label>
-            <input type="number" id="product-ml" name="product-ml">
+            <label for="product-ml">Ml</label>
+            <input type="number" id="product-ml" name="ml">
             
             <label for="product-gender">Gender</label>
-            <select id="product-gender" name="product-gender">
+            <select class="redio" id="product-gender" name="gender1">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-                <option value="unisex">Unisex</option>
+                <option value="unisex">Childe</option>
             </select>
             
             <label for="product-moreinfo">More Info</label>
-            <textarea id="product-moreinfo" name="product-moreinfo" rows="4"></textarea>
+            <textarea id="product-moreinfo" name="moreinfo" rows="4"></textarea>
             
-            <button type="submit">Submit</button>
+            <button type="submit" name="submit">Submit</button>
         </form>
     </div>
 </body>
 </html>
 <?php
-    if (isset($_POST['save'])) {
-        $FNAME = $_POST['Fname'];
-        $LNAME = $_POST['Lname'];
-        $Email = $_POST['Email'];
-        $password = $_POST['Pass'];
-        $cpassword = $_POST['Apass'];
-        if ($FNAME == NULL && $LNAME == NULL && $Email == NULL && $password == NULL && $cpassword == NULL) {
+    if (isset($_POST['submit'])) {
+        $filename = $_FILES["image"]["name"];
+    $tempname = $_FILES["image"]["tmp_name"];
+    $folder = "image/" . $filename;
+    move_uploaded_file($tempname, $folder);
+        $name = $_POST['pname'];
+        $price = $_POST['price'];
+        $ml = $_POST['ml'];
+        $gdr = $_POST['gender1'];
+        $moreinfo = $_POST['moreinfo'];
+        if($name!=null && $price!=null && $ml!=null && $gdr!=null && $moreinfo!=null && $folder!=null){
+           try{
+            $in="INSERT INTO `shopdata` (`IMG`, `name`,`price`, `ml`,`gender`, `moreinfo`) VALUES ('$folder','$name','$price','$ml','$gdr','$moreinfo');";
+            $result=mysqli_query($conn,$in);
             ?>
-            <script>document.getElementById("some_error").innerHTML = "Pleace fill all field";</script>
-            <?php
-        } elseif ($FNAME != NULL && $LNAME == NULL && $Email == NULL && $password == NULL && $cpassword == NULL) {
+                <script>
+                    document.getElementById("successfully").innerHTML = "Data Submited Successfully";
+                    setTimeout(function () {
+                        close();
+                    }, 2000);
+                </script>
+                <?php
+           }
+           catch(exception $insertE){}
+        }
+        else{
             ?>
-            <script>document.getElementById("lname-error").innerHTML = "Pleace Enter Last Name";</script>
-            <script>document.getElementById("email-error").innerHTML = "Pleace Enter Email";</script>
-            <script>document.getElementById("pass-error").innerHTML = "Pleace Enter Password";</script>
-            <script>document.getElementById("cpass-error").innerHTML = "Pleace Enter Confirm";</script>
-            <?php
-        } elseif ($FNAME != NULL && $LNAME != NULL && $Email == NULL && $password == NULL && $cpassword == NULL) {
-            ?>
-            <script>document.getElementById("email-error").innerHTML = "Pleace Enter Email";</script>
-            <script>document.getElementById("pass-error").innerHTML = "Pleace Enter Password";</script>
-            <script>document.getElementById("cpass-error").innerHTML = "Pleace Enter Confirm";</script>
-            <?php
-        } elseif ($FNAME != NULL && $LNAME != NULL && $Email != NULL && $password == NULL && $cpassword == NULL) {
-            ?>
-            <script>document.getElementById("pass-error").innerHTML = "Pleace Enter Password";</script>
-            <script>document.getElementById("cpass-error").innerHTML = "Pleace Enter Confirm";</script>
-            <?php
-        } elseif ($FNAME != NULL && $LNAME != NULL && $Email != NULL && $password != NULL && $cpassword == NULL) {
-            ?>
-            <script>document.getElementById("cpass-error").innerHTML = "Pleace Enter Confirm Password";</script>
-            <?php
-        } elseif ($FNAME == NULL && $LNAME == NULL && $Email == NULL && $password == NULL && $cpassword != NULL) {
-            ?>
-            <script>document.getElementById("fname-error").innerHTML = "Pleace Enter First Name";</script>
-            <script>document.getElementById("lname-error").innerHTML = "Pleace Enter Last Name";</script>
-            <script>document.getElementById("email-error").innerHTML = "Pleace Enter Email";</script>
-            <script>document.getElementById("pass-error").innerHTML = "Pleace Enter Password";</script>
-            <?php
-        } elseif ($FNAME == NULL && $LNAME == NULL && $Email == NULL && $password != NULL && $cpassword == NULL) {
-            ?>
-            <script>document.getElementById("fname-error").innerHTML = "Pleace Enter First Name";</script>
-            <script>document.getElementById("lname-error").innerHTML = "Pleace Enter Last Name";</script>
-            <script>document.getElementById("email-error").innerHTML = "Pleace Enter Email";</script>
-            <script>document.getElementById("cpass-error").innerHTML = "Pleace Enter Confirm";</script>
-            <?php
-        } elseif ($FNAME == NULL && $LNAME == NULL && $Email != NULL && $password == NULL && $cpassword == NULL) {
-            ?>
-            <script>document.getElementById("fname-error").innerHTML = "Pleace Enter First Name";</script>
-            <script>document.getElementById("lname-error").innerHTML = "Pleace Enter Last Name";</script>
-            <script>document.getElementById("pass-error").innerHTML = "Pleace Enter Password";</script>
-            <script>document.getElementById("cpass-error").innerHTML = "Pleace Enter Confirm";</script>
-            <?php
-        } elseif ($FNAME == NULL && $LNAME != NULL && $Email == NULL && $password == NULL && $cpassword == NULL) {
-            ?>
-            <script>document.getElementById("fname-error").innerHTML = "Pleace Enter First Name";</script>
-            <script>document.getElementById("email-error").innerHTML = "Pleace Enter Email";</script>
-            <script>document.getElementById("pass-error").innerHTML = "Pleace Enter Password";</script>
-            <script>document.getElementById("cpass-error").innerHTML = "Pleace Enter Confirm";</script>
+            <script>
+                document.getElementById("error").innerHTML = "Data Not Submit Please Try Again";
+                // location.reload();
+                setTimeout(function () {
+                    document.getElementById("error").innerHTML =null;
+                    }, 2000);
+            </script>
             <?php
         }
-        if ($password !== $cpassword && $password != NULL && $cpassword != NULL) {
-            ?>
-            <script>document.getElementById("cpass-error").innerHTML = "Password not match";</script>
-            <?php
         }
-    }
     ?>
-
